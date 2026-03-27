@@ -1,0 +1,43 @@
+[project]
+name = "my-assist"
+version = "0.1.0"
+description = "Mostly-local personal assistant with Discord and Telegram adapters."
+requires-python = ">=3.11"
+dependencies = [
+    "discord.py>=2.5.0",
+    "duckduckgo-search>=8.1.1",
+    "faster-whisper>=1.2.0",
+    "google-api-python-client>=2.166.0",
+    "google-auth-httplib2>=0.2.0",
+    "google-auth-oauthlib>=1.2.1",
+    "httpx>=0.28.1",
+    "pydantic>=2.11.0",
+    "pydantic-settings>=2.8.1",
+    "python-telegram-bot>=22.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.11.0",
+]
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = [
+    "src",
+    "src.core",
+    "src.memory",
+    "src.speech",
+    "src.tools",
+    "src.transport",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
